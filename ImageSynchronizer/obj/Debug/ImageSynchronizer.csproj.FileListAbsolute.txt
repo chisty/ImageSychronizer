@@ -1,0 +1,16 @@
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\bin\Debug\ImageSynchronizer.exe.config
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\bin\Debug\ImageSynchronizer.exe
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\bin\Debug\ImageSynchronizer.pdb
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.csprojResolveAssemblyReference.cache
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\MainWindow.g.cs
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\App.g.cs
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer_MarkupCompile.cache
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer_MarkupCompile.lref
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\MainWindow.baml
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.g.resources
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.Properties.Resources.resources
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.csproj.GenerateResource.Cache
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.exe
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.pdb
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\Github\ImageSynchronizer\ImageSynchronizer\bin\Debug\Newtonsoft.Json.xml
