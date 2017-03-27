@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using ImageSynchronizer.Extension;
 using ImageSynchronizer.Models;
 
@@ -27,6 +28,7 @@ namespace ImageSynchronizer.Processor
             var inputDir = ConfigurationManager.AppSettings["inputdir"];
             var shouldProcess = ConfigurationManager.AppSettings["shouldprocess"];
             var updateMetaData = ConfigurationManager.AppSettings["updateMetaData"];
+            var operationType = ConfigurationManager.AppSettings["operationType"];
                         
             if (updateMetaData.ToLower() == "true")
             {
@@ -34,18 +36,24 @@ namespace ImageSynchronizer.Processor
                 return;
             }
 
-            if(string.IsNullOrWhiteSpace(inputDir) || !Directory.Exists(inputDir)) return;
+            if (string.IsNullOrWhiteSpace(inputDir) || !Directory.Exists(inputDir))
+            {
+                MessageBox.Show("Input directory not found", "Error", MessageBoxButton.OK);
+                return;
+            }
 
             ReadAllResources(Directory.CreateDirectory(inputDir));
+            var isMove = operationType.ToLower().Trim() == "move";
 
             if (shouldProcess.ToLower() == "true")
             {
                 if (string.IsNullOrWhiteSpace(basePhotoDir) || !Directory.Exists(basePhotoDir) || string.IsNullOrWhiteSpace(baseMovieDir) || !Directory.Exists(baseMovieDir))
                 {
+                    MessageBox.Show("Base directory not found", "Error", MessageBoxButton.OK);
                     return;
                 }
                 var imageProcessor = new ImageProcessor();
-                imageProcessor.Process(ResourceItems, SavedResourceItems, Directory.CreateDirectory(basePhotoDir), Directory.CreateDirectory(baseMovieDir));
+                imageProcessor.Process(ResourceItems, SavedResourceItems, Directory.CreateDirectory(basePhotoDir), Directory.CreateDirectory(baseMovieDir), isMove);
                 
                 SavedResourceItems.AddRange(ResourceItems);
                 FileHelper.WriteJSON(SavedResourceItems.OrderBy(o => o.FileName).ToList());

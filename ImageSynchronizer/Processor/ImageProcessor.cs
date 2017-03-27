@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace ImageSynchronizer.Processor
 {
     public class ImageProcessor
     {           
-        public int Process(List<ResourceItem> resourceItems, List<ResourceItem> savedResourceItems, DirectoryInfo basePhotoDir, DirectoryInfo baseMovieDir)
+        public int Process(List<ResourceItem> resourceItems, List<ResourceItem> savedResourceItems, DirectoryInfo basePhotoDir, DirectoryInfo baseMovieDir, bool isMove)
         {
             var total = 0;
             foreach (var resourceItem in resourceItems)
@@ -20,7 +21,7 @@ namespace ImageSynchronizer.Processor
                     var baseOutputDir = resourceItem.FileType == FileType.Image ? basePhotoDir : baseMovieDir;
                     var fileInfo = new FileInfo(resourceItem.FileFullPath);
                     var year = fileInfo.LastWriteTime.Year.ToString();
-                    var month = $"{fileInfo.LastWriteTime.Month}. {fileInfo.LastWriteTime.ToString("MMMM")}";
+                    var month = string.Format("{0}. {1}", fileInfo.LastWriteTime.Month, fileInfo.LastWriteTime.ToString("MMMM"));
                     var day = fileInfo.LastWriteTime.Day.ToString();
 
                     var outputDir = Directory.CreateDirectory(Path.Combine(baseOutputDir.FullName, year, month));
@@ -28,17 +29,24 @@ namespace ImageSynchronizer.Processor
                     {
                         var oldFiles = outputDir.GetFiles();
                         var id = 0;
-                        var newFileName = $"{day}({id}){fileInfo.Extension}";
+                        var newFileName = string.Format("{0}({1}){2}", day, id, fileInfo.Extension); 
                         while (oldFiles.Any(o => string.Equals(o.Name, newFileName)))
                         {
                             id++;
-                            newFileName = $"{day}({id}){fileInfo.Extension}";
+                            newFileName = string.Format("{0}({1}){2}", day, id, fileInfo.Extension);
                         }
                         try
                         {
                             var destFileName = Path.Combine(outputDir.FullName, newFileName);
                             resourceItem.FileFullPath = destFileName;
-                            File.Move(fileInfo.FullName, destFileName);
+                            if (isMove)
+                            {
+                                File.Move(fileInfo.FullName, destFileName);
+                            }
+                            else
+                            {
+                                File.Copy(fileInfo.FullName, destFileName);                                
+                            }
                             total++;
                             Console.WriteLine(@"Count= {0}. File Moved from {1} to {2}", total, fileInfo.FullName, destFileName);
                         }

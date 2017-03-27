@@ -76,6 +76,7 @@ namespace ImageSynchronizer.Extension
                 case ".avi":
                 case ".mov":
                 case ".mts":
+                case ".vob":
                     return true;
             }
             return false;
