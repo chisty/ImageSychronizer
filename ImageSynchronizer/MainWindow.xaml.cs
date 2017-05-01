@@ -28,9 +28,14 @@ namespace ImageSynchronizer
 
         private void HandleProcessCommand(object sender, RoutedEventArgs e)
         {
-            ProcessorManager manager= new ProcessorManager();
-            manager.ProcessResources();
-            MessageBox.Show("Process Complete", "Success", MessageBoxButton.OK);
+            var dialog= MessageBox.Show("Did you check metaDataPath, backUpMetaDataPath, input-output dir and" +
+                            "shouldprocess, updateMetaOnly and operation type?", "Confirm", MessageBoxButton.YesNo);
+            if (dialog == MessageBoxResult.Yes)
+            {
+                ProcessorManager manager = new ProcessorManager();
+                manager.ProcessResources();
+                MessageBox.Show("Process Complete", "Success", MessageBoxButton.OK);
+            }
         }
     }
 }

@@ -27,10 +27,10 @@ namespace ImageSynchronizer.Processor
             var baseMovieDir = ConfigurationManager.AppSettings["baseMovieDir"];
             var inputDir = ConfigurationManager.AppSettings["inputdir"];
             var shouldProcess = ConfigurationManager.AppSettings["shouldprocess"];
-            var updateMetaData = ConfigurationManager.AppSettings["updateMetaData"];
+            var updateMetaDataOnly = ConfigurationManager.AppSettings["updateMetaDataOnly"];
             var operationType = ConfigurationManager.AppSettings["operationType"];
                         
-            if (updateMetaData.ToLower() == "true")
+            if (updateMetaDataOnly.ToLower() == "true")
             {
                 UpdateResourceMetaDataOnly(basePhotoDir, baseMovieDir);
                 return;

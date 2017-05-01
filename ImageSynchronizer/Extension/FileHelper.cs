@@ -31,16 +31,18 @@ namespace ImageSynchronizer.Extension
 
         public static bool WriteJSON(List<ResourceItem> resourceItems)
         {
-            var blobFilePath = ConfigurationManager.AppSettings["resourceMeta"];
-            if (string.IsNullOrWhiteSpace(blobFilePath)) return false;
+            var metaDataFilePath = ConfigurationManager.AppSettings["resourceMeta"];
+            var backupMetaDataFilePath = ConfigurationManager.AppSettings["backupMeta"];
+            if (string.IsNullOrWhiteSpace(metaDataFilePath)) return false;
             if (resourceItems == null || resourceItems.Any() == false) return false;
 
             try
             {
                 var json = JsonConvert.SerializeObject(resourceItems);
-                if (File.Exists(blobFilePath)) File.Delete(blobFilePath);
+                if (File.Exists(metaDataFilePath)) File.Delete(metaDataFilePath);
 
-                File.WriteAllText(blobFilePath, json);
+                File.WriteAllText(metaDataFilePath, json);
+                File.Copy(metaDataFilePath, backupMetaDataFilePath);
             }
             catch (Exception ex)
             {
