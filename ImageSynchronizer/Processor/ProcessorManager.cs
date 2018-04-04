@@ -104,7 +104,11 @@ namespace ImageSynchronizer.Processor
             {
                 var checksum = file.Checksum();
                 Console.Write(@"#");
-                if (SavedResourceItems.Any(r => r.Checksum == checksum) || ResourceItems.Any(r => r.Checksum == checksum)) return;
+                if (SavedResourceItems.Any(r => r.Checksum == checksum) || ResourceItems.Any(r => r.Checksum == checksum))
+                {
+                    //checksum = Guid.NewGuid().ToString("N");
+                    return;
+                }
 
                 var resourceItem = new ResourceItem
                 {
