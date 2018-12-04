@@ -30,3 +30,21 @@ E:\Development Zone\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSyn
 E:\Development Zone\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.csproj.GenerateResource.Cache
 E:\Development Zone\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.exe
 E:\Development Zone\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.pdb
+D:\GitHub\ImageSychronizer\ImageSynchronizer\bin\Debug\ImageSynchronizer.exe.config
+D:\GitHub\ImageSychronizer\ImageSynchronizer\bin\Debug\ImageSynchronizer.exe
+D:\GitHub\ImageSychronizer\ImageSynchronizer\bin\Debug\ImageSynchronizer.pdb
+D:\GitHub\ImageSychronizer\ImageSynchronizer\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\ImageSychronizer\ImageSynchronizer\bin\Debug\Newtonsoft.Json.xml
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.csprojAssemblyReference.cache
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\MainWindow.g.cs
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\App.g.cs
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer_MarkupCompile.cache
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer_MarkupCompile.lref
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\MainWindow.baml
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.g.resources
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.Properties.Resources.resources
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.csproj.GenerateResource.cache
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.csproj.CoreCompileInputs.cache
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.csproj.CopyComplete
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.exe
+D:\GitHub\ImageSychronizer\ImageSynchronizer\obj\Debug\ImageSynchronizer.pdb

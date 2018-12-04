@@ -34,6 +34,7 @@ namespace ImageSynchronizer
             {
                 ProcessorManager manager = new ProcessorManager();
                 manager.ProcessResources();
+                //manager.RenameToUniqueNames();
                 MessageBox.Show("Process Complete", "Success", MessageBoxButton.OK);
             }
         }

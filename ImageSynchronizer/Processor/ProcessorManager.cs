@@ -124,5 +124,57 @@ namespace ImageSynchronizer.Processor
                 Console.WriteLine(@"Exception @ Checksum generation: "+ex.StackTrace);
             }
         }
+
+        public void RenameToUniqueNames()
+        {
+            var inputDirPath = ConfigurationManager.AppSettings["inputdir"];
+            if (Directory.Exists(inputDirPath))
+            {
+                var inputDir = Directory.CreateDirectory(inputDirPath);
+                foreach (var yearDir in inputDir.GetDirectories())
+                {
+                    if (yearDir.Name.Equals("Womb")) continue;
+
+                    foreach (var monthDir in yearDir.GetDirectories())
+                    {
+                        //if(monthDir.Name.Equals("Birthday Party"))  continue;
+                        
+                        foreach (var file in monthDir.GetFiles())
+                        {
+                            var oldName = file.Name;
+                            if (oldName.Contains("-"))
+                            {
+                                var splits = oldName.Split('-');
+                                if (splits.Length == 2)
+                                {
+                                    var newName = string.Format("{0}-{1}-{2}({3}){4}", yearDir.Name, GetTextBeforeDot(monthDir.Name), splits[0], GetTextBeforeDot(splits[1]), file.Extension);
+                                    var newFullName = Path.Combine(monthDir.FullName, newName);
+                                    File.Move(file.FullName, newFullName);
+                                }
+                            }
+                            else
+                            {
+                                var newName = string.Format("{0}-{1}-{2}", yearDir.Name, GetTextBeforeDot(monthDir.Name), oldName);
+                                var newFullName = Path.Combine(monthDir.FullName, newName);
+                                File.Move(file.FullName, newFullName);
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        private string GetTextBeforeDot(string textWithDot)
+        {
+            var splits = textWithDot.Split('.');
+            int digit;
+            if(int.TryParse(splits[0], out digit) && digit > -1)
+            {
+                return digit.ToString();
+            }
+
+            return textWithDot;
+        }
     }
 }

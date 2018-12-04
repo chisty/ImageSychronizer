@@ -42,7 +42,7 @@ namespace ImageSynchronizer.Extension
                 if (File.Exists(metaDataFilePath)) File.Delete(metaDataFilePath);
 
                 File.WriteAllText(metaDataFilePath, json);
-                File.Copy(metaDataFilePath, backupMetaDataFilePath);
+                File.Copy(metaDataFilePath, backupMetaDataFilePath, true);
             }
             catch (Exception ex)
             {
