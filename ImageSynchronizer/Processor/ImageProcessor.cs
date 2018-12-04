@@ -29,11 +29,11 @@ namespace ImageSynchronizer.Processor
                     {
                         var oldFiles = outputDir.GetFiles();
                         var id = 0;
-                        var newFileName = string.Format("{0}-{1}-{2}({3}){4}", year, month, day, id, fileInfo.Extension); 
+                        var newFileName = string.Format("{0}-{1}-{2}({3}){4}", year, fileInfo.LastWriteTime.Month, day, id, fileInfo.Extension); 
                         while (oldFiles.Any(o => string.Equals(o.Name.ToLower(), newFileName.ToLower())))
                         {
                             id++;
-                            newFileName = string.Format("{0}-{1}-{2}({3}){4}", year, month, day, id, fileInfo.Extension);
+                            newFileName = string.Format("{0}-{1}-{2}({3}){4}", year, fileInfo.LastWriteTime.Month, day, id, fileInfo.Extension);
                         }
                         try
                         {
